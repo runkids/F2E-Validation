@@ -1,0 +1,46 @@
+@mixin absolute{
+  position: absolute;
+}
+
+@mixin center($x:-50%,$y:-50%){
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  transform: translateX($x) translateY($y);
+}
+  
+@mixin trans($s){
+  transition: $s;
+}
+  
+@mixin size($w,$h){
+  width: $w;
+  height: $h;
+}
+
+@mixin fillSize{
+  width: 100%;
+  height: 100%;
+}
+  
+@mixin textStyle($size, $spacing, $color){
+  font-size: $size;
+  letter-spacing: $spacing;
+  color: $color !important;
+}
+
+@mixin inner_title(){
+  font-size: 24px;
+  font-family: 'HelveticaNeue-Bold';
+  padding: 30px 0 0 40px;
+}
+
+@mixin box ($width,$bgColor){
+  @include size($width,100%);
+  margin-top: 20px;
+  margin-left:auto;
+  margin-right:auto;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: $bgColor;
+}
