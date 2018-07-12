@@ -53,12 +53,7 @@ export default {
           window.scrollTo(0, 0);
           this.setUpdateFormData(this.userInfoForm);
           this.updateStepActive();
-
-          document.querySelector('.step-two').classList.toggle('nextStep');
-          setTimeout(() => {
-            document.querySelector('.step-two').classList.toggle('notShow');
-            document.querySelector('.step-three').classList.toggle('notShow');
-          }, 500);
+          this.changeClass('.step-two', '.step-three');
         } else {
           return false;
         }

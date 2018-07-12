@@ -42,12 +42,7 @@ export default {
       this.updateStepActive();
 
       this.isLoading = false;
-
-      document.querySelector('.step-three').classList.toggle('nextStep');
-      setTimeout(() => {
-        document.querySelector('.step-three').classList.toggle('notShow');
-        document.querySelector('.lastStep').classList.toggle('notShow');
-      }, 500);
+      this.changeClass('.step-three', '.lastStep');
     },
     fileSelected(event) {
       const file = event.target.files.item(0); // 取得File物件
@@ -59,8 +54,8 @@ export default {
       const img = new Image();
       let imgwidth = 0;
       let imgheight = 0;
-      const maxwidth = 150;
-      const maxheight = 150;
+      const maxwidth = 150; // 圖片寬度上限
+      const maxheight = 150;// 圖片高度上限
       img.src = event.target.result;
       img.addEventListener('load', (e) => {
         imgwidth = e.path[0].width;
@@ -90,7 +85,6 @@ export default {
   display: flex;
   justify-content: center;
   bottom: -20px;
-  cursor: pointer;
   > img{
     @include size(150px,100%);
   }
@@ -107,6 +101,7 @@ export default {
   border: 1px dashed black;
   color: $black_color;
   position: relative;
+  cursor: pointer;
   .icon{
     font-size: 50px;
   }

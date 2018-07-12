@@ -39,7 +39,7 @@
 
 <script>
 import GitHubIcon from '@/components/GitHubIcon';
-import validation from '@/config/validation';
+import validation from '@/config/validationRegular';
 import { validateAcc, validatePass } from '@/config/vaildationRules';
 import { singIn, resetPassword } from '@/api/firebaseAuthAPI';
 

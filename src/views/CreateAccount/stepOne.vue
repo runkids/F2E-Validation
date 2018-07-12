@@ -25,22 +25,13 @@
 </template>
 
 <script>
-import { validateAcc, validatePass } from '@/config/vaildationRules';
+import { validateAcc, validatePass, validateCheckpass } from '@/config/vaildationRules';
 import { singUp, singIn } from '@/api/firebaseAuthAPI';
 import mixins from './mixins';
 
 export default {
   mixins: [mixins],
   data() {
-    const validateCheckpass = (rule, value, callback) => {
-      if (value === '') {
-        callback(new Error('Please Enter Passwrod Again'));
-      } else if (value !== this.registerForm.password) {
-        callback(new Error('Passwrod Not Match'));
-      } else {
-        callback();
-      }
-    };
     return {
       isLoading: false,
       registerForm: {
@@ -71,12 +62,7 @@ export default {
 
           if (message === 'success') {
             await singIn(this.registerForm); // 登入
-
-            document.querySelector('.step-one').classList.toggle('nextStep');
-            setTimeout(() => {
-              document.querySelector('.step-one').classList.toggle('notShow');
-              document.querySelector('.step-two').classList.toggle('notShow');
-            }, 500);
+            this.changeClass('.step-one', '.step-two');
           } else {
             this.$message({
               type: 'error',
