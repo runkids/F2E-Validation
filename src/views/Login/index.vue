@@ -124,7 +124,7 @@ export default {
   color: $white_color;
   margin: 0 auto;
   text-align: center;
-  margin-top: 100px;
+  margin-top: 70px;
   animation: 1.5s loginLoading cubic-bezier(0.215, 0.61, 0.355, 1);
 
   h3{

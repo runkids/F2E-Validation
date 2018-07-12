@@ -52,19 +52,21 @@ export default {
     },
     imageLoader(event) {
       const img = new Image();
+      const vm = this;
       let imgwidth = 0;
       let imgheight = 0;
       const maxwidth = 150; // 圖片寬度上限
       const maxheight = 150;// 圖片高度上限
       img.src = event.target.result;
-      img.addEventListener('load', (e) => {
-        imgwidth = e.path[0].width;
-        imgheight = e.path[0].height;
+      /* eslint-disable */ 
+      img.addEventListener('load', function () {
+        imgwidth = this.width;
+        imgheight = this.height;
         if (imgwidth <= maxwidth && imgheight <= maxheight) {
-          this.updateProfileImage(event.target.result);
+          vm.updateProfileImage(event.target.result);
         } else {
-          this.updateProfileImage('');
-          this.$message({
+          vm.updateProfileImage('');
+          vm.$message({
             type: 'error',
             message: 'Max Size: 150*150px',
           });
@@ -98,6 +100,7 @@ export default {
   justify-content: space-around;
   align-items: center;
   @include size(300px,150px);
+  box-sizing: border-box;
   border: 1px dashed black;
   color: $black_color;
   position: relative;
