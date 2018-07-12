@@ -1,9 +1,9 @@
 <template>
   <div class="signUp">
-    <el-steps :active="getStepActive" simple class='steps' finish-status="success">
-      <el-step title="Step1"></el-step>
-      <el-step title="Step2"></el-step>
-      <el-step title="Step3"></el-step>
+    <el-steps :active="getStepActive" class='steps' finish-status="success">
+      <el-step></el-step>
+      <el-step></el-step>
+      <el-step></el-step>
     </el-steps>
     <div class="formArea">
 
@@ -100,8 +100,7 @@ export default {
     display: none;
   }
   .nextStep{
-    transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    animation: 2s nextStep;
+    animation: .6s nextStep cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 }
 </style>

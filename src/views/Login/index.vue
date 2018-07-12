@@ -68,6 +68,7 @@ export default {
       // eslint-disable-next-line
       this.$refs[form].validate(async (valid) => {
         if (valid) {
+          window.scrollTo(0, 0);
           this.isLoading = true;
           const res = await singIn(this.form); // 驗證帳號密碼是否正確
           this.isLoading = false;

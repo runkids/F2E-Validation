@@ -35,9 +35,14 @@ export default {
   },
   methods: {
     async submitForm() {
+      window.scrollTo(0, 0);
       this.isLoading = true;
+
       await updateUserInfo(this.getUpdateForm);
+      this.updateStepActive();
+
       this.isLoading = false;
+
       document.querySelector('.step-three').classList.toggle('nextStep');
       setTimeout(() => {
         document.querySelector('.step-three').classList.toggle('notShow');
@@ -85,6 +90,7 @@ export default {
   display: flex;
   justify-content: center;
   bottom: -20px;
+  cursor: pointer;
   > img{
     @include size(150px,100%);
   }

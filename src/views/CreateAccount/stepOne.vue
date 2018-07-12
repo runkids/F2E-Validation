@@ -61,11 +61,17 @@ export default {
     submitForm(form) {
       // eslint-disable-next-line
       this.$refs[form].validate(async (valid) => {
+
         if (valid) {
+          window.scrollTo(0, 0);
           this.isLoading = true;
+
           const { message } = await singUp(this.registerForm);
+          this.updateStepActive();
+
           if (message === 'success') {
             await singIn(this.registerForm); // 登入
+
             document.querySelector('.step-one').classList.toggle('nextStep');
             setTimeout(() => {
               document.querySelector('.step-one').classList.toggle('notShow');
@@ -78,6 +84,7 @@ export default {
             });
             this.$refs[form].clearValidate(); // 移除表單的校驗結果
           }
+
           this.isLoading = false;
         } else {
           return false;

@@ -48,8 +48,12 @@ export default {
     submitForm(form) {
       // eslint-disable-next-line
       this.$refs[form].validate(async (valid) => {
+
         if (valid) {
+          window.scrollTo(0, 0);
           this.setUpdateFormData(this.userInfoForm);
+          this.updateStepActive();
+
           document.querySelector('.step-two').classList.toggle('nextStep');
           setTimeout(() => {
             document.querySelector('.step-two').classList.toggle('notShow');

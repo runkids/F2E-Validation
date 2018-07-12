@@ -12,11 +12,11 @@
 
 @keyframes nextStep{
   0%{
-    transform: translateX(-30%);
-    opacity: 1;
+    transform: translateY(50%);
+    opacity: 0.7;
   }
   100%{
-    transform: translateX(-500%);
+    transform: translateY(100%);
     opacity: 0;
   }
 }
