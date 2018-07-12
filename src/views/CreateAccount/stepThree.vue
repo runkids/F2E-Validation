@@ -38,7 +38,11 @@ export default {
       this.isLoading = true;
       await updateUserInfo(this.getUpdateForm);
       this.isLoading = false;
-      this.updateStepActive();
+      document.querySelector('.step-three').classList.toggle('nextStep');
+      setTimeout(() => {
+        document.querySelector('.step-three').classList.toggle('notShow');
+        document.querySelector('.lastStep').classList.toggle('notShow');
+      }, 500);
     },
     fileSelected(event) {
       const file = event.target.files.item(0); // 取得File物件

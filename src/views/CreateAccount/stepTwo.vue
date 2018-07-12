@@ -50,7 +50,11 @@ export default {
       this.$refs[form].validate(async (valid) => {
         if (valid) {
           this.setUpdateFormData(this.userInfoForm);
-          this.updateStepActive();
+          document.querySelector('.step-two').classList.toggle('nextStep');
+          setTimeout(() => {
+            document.querySelector('.step-two').classList.toggle('notShow');
+            document.querySelector('.step-three').classList.toggle('notShow');
+          }, 500);
         } else {
           return false;
         }

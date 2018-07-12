@@ -66,7 +66,11 @@ export default {
           const { message } = await singUp(this.registerForm);
           if (message === 'success') {
             await singIn(this.registerForm); // 登入
-            this.updateStepActive();
+            document.querySelector('.step-one').classList.toggle('nextStep');
+            setTimeout(() => {
+              document.querySelector('.step-one').classList.toggle('notShow');
+              document.querySelector('.step-two').classList.toggle('notShow');
+            }, 500);
           } else {
             this.$message({
               type: 'error',

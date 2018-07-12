@@ -1,25 +1,25 @@
 <template>
   <div class="signUp">
     <el-steps :active="getStepActive" simple class='steps' finish-status="success">
-      <el-step title="Step1" icon="el-icon-upload"></el-step>
-      <el-step title="Step2" icon="el-icon-edit"></el-step>
-      <el-step title="Step3" icon="el-icon-picture"></el-step>
+      <el-step title="Step1"></el-step>
+      <el-step title="Step2"></el-step>
+      <el-step title="Step3"></el-step>
     </el-steps>
     <div class="formArea">
 
-      <div class="step-one" v-if="getStepActive===0">
+      <div class="step-one">
         <step-one></step-one>
       </div>
 
-      <div class="step-two" v-if="getStepActive===1">
+      <div class="step-two notShow" >
         <step-two></step-two>
       </div>
 
-      <div class="step-three" v-if="getStepActive===2">
+      <div class="step-three notShow" >
         <step-three></step-three>
       </div>
 
-      <div v-if="getStepActive===3">
+      <div class="lastStep notShow">
         <last-step></last-step>
       </div>
 
@@ -68,9 +68,11 @@ export default {
     margin-top: 20px;
   }
   .formArea{
-    @include size(300px,100%);
-    @include box(300px,$white_color);
-    min-height: 200px;
+    > * {
+      @include size(300px,100%);
+      @include box(300px,$white_color);
+      min-height: 200px;
+    }
   }
   h3{
     font-size: 30px;
@@ -93,6 +95,13 @@ export default {
     .redirected{
       color:#0275D8;
     }
+  }
+  .notShow{
+    display: none;
+  }
+  .nextStep{
+    transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    animation: 2s nextStep;
   }
 }
 </style>
