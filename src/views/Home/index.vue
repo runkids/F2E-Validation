@@ -73,7 +73,7 @@ export default {
   computed: {
     ...mapGetters(['getUserInfo']),
   },
-  mounted() {
+  created() {
     this.$nextTick(async () => {
       await this.initUserInfo();
       const {
