@@ -1,5 +1,8 @@
 /* eslint-disable */
-import firebase from 'firebase';
+// for prod firebase setting
+import firebase from 'firebase/app';
+import 'firebase/storage'; 
+import 'firebase/auth'; 
 import config from '@/config/firebase';
 
 firebase.initializeApp(config);

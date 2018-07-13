@@ -41,6 +41,7 @@ export const validateDisplayName = (rule, value, callback) => {
     callback();
   }
 };
+
 export const validatePhoneNumber = (rule, value, callback) => {
   if (!value) {
     callback(new Error('Please Enter Your Phone Number'));
